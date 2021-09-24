@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using MarsQA_1.Helpers;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 using OpenQA.Selenium.Support.UI;
 using System;
@@ -97,32 +98,38 @@ namespace MarsFramework.Pages
 
         public void AddSkills()
         {
-            Thread.Sleep(1000);
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
             ShareSkillButton.Click();
-            Title.SendKeys("Developing");
-            Thread.Sleep(1000);
-            Description.SendKeys("Java");
+            //Title.SendKeys("Developing");
+            Title.SendKeys(ExcelLibHelp.ReadData(2, "skills"));
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+            // Description.SendKeys("Java");
+            Description.SendKeys(ExcelLibHelp.ReadData(3, "skills"));
             //choose level
             var selectElement = new SelectElement(CategoryDropDown);
             //select by value
             selectElement.SelectByIndex(1);
-            Thread.Sleep(1000);
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
             var selectElement1 = new SelectElement(SubCategoryDropDown);
             //select by value
             selectElement1.SelectByIndex(1);
-            Thread.Sleep(1000);
-            Tags.SendKeys("C#");
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+            // Tags.SendKeys("C#");
+            Tags.SendKeys(ExcelLibHelp.ReadData(4, "skills"));
             Tags.SendKeys(Keys.Enter);
             ServiceTypeOptions.Click();
             LocationTypeOption.Click();
             Thread.Sleep(1000);
             Days.Click();
-            StartTimeDropDown.SendKeys("02:04");
-            EndTimeDropDown.SendKeys("02:04");
+            //StartTimeDropDown.SendKeys("02:04");
+            StartTimeDropDown.SendKeys(ExcelLibHelp.ReadData(5, "skills"));
+            //EndTimeDropDown.SendKeys("02:04");
+            EndTimeDropDown.SendKeys(ExcelLibHelp.ReadData(6, "skills"));
             Thread.Sleep(1000);
             SkillTradeOption.Click();
             Thread.Sleep(1000);
-            SkillExchange.SendKeys("C#");
+           // SkillExchange.SendKeys("C#");
+            SkillExchange.SendKeys(ExcelLibHelp.ReadData(7, "skills"));
             SkillExchange.SendKeys(Keys.Enter);
            // CreditAmount.Click();
             ActiveOption.Click();

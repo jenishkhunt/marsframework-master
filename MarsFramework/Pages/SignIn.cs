@@ -1,6 +1,8 @@
-﻿using OpenQA.Selenium;
+﻿using MarsQA_1.Helpers;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 using System.Threading;
+
 
 namespace MarsFramework.Pages
 {
@@ -29,8 +31,10 @@ namespace MarsFramework.Pages
         {
             SignInBtn.Click();
             Thread.Sleep(1000);
-            Email.SendKeys("jenishkhunt07@gmail.com");
-            Password.SendKeys("jenish1997");
+            //Email.SendKeys("jenishkhunt07@gmail.com");
+            //Password.SendKeys("jenish1997");
+            Email.SendKeys(ExcelLibHelp.ReadData(2, "username"));
+            Password.SendKeys(ExcelLibHelp.ReadData(2, "password"));
             Thread.Sleep(1000);
             LoginBtn.Click();
         }

@@ -124,9 +124,9 @@
     </Compile>
     <Compile Include="Global\Base.cs" />
     <Compile Include="Global\Common.cs" />
+    <Compile Include="Global\ExcelLibHelper.cs" />
     <Compile Include="Global\GlobalDefinitions.cs" />
     <Compile Include="Pages\ManageListings.cs" />
-    <Compile Include="Pages\ShareSkill.cs" />
     <Compile Include="Pages\SignIn.cs" />
     <Compile Include="Pages\SignUp.cs" />
     <Compile Include="Pages\Profile.cs" />
@@ -145,6 +145,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="Excel\Mars.xlsx" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
